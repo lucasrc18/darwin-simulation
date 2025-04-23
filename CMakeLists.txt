@@ -21,4 +21,4 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
 
-target_link_libraries(DarwinSimulation PRIVATE glfw GLEW::GLEW OpenGL::GL)
+target_link_libraries(DarwinSimulation PRIVATE glfw GLEW::GLEW OpenGL::GL m)

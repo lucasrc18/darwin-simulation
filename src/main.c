@@ -21,8 +21,11 @@ int main(void){
 }
 
 void render(){
+    Rect r1 = newCentralizedRect(100.0f, 100.0f);
 
-    Rect rect = newSquare(newVec2(100.0f, 100.0f), 50.0f);
-    drawRect(rect, newColor(1.0f, 0.0f, 0.0f));
+    Rect r2 = newRect(newVec2(0.0f, 0.0f), 30.0f, 30.0f);
+    r2 = centralizeRect(r2);
 
+    drawRect(r1, newColor(1.0f, 0.0f, 0.0f));
+    drawRect(r2, newColor(0.0f, 1.0f, 0.0f));
 }

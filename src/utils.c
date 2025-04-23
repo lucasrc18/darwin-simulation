@@ -31,6 +31,20 @@ Rect newRect(Vec2 top_left, float width, float height){
     return rect;
 }
 
+Rect centralizeRect(Rect rect){
+    const float width = rect.top_right.x - rect.top_left.x;
+    const float height = rect.bottom_left.y - rect.top_left.y;
+    
+    return newCentralizedRect(width, height);
+}
+
+Rect newCentralizedRect(float width, float height){
+    const float xoffset = width / 2.0f;
+    const float yoffset = height / 2.0f;
+
+    return newRect(newVec2((WINDOW_WIDTH / 2.0f) - xoffset, (WINDOW_HEIGHT / 2.0f) - yoffset), width, height);
+}
+
 Color newColor(float r, float g, float b){
     Color color;
     
@@ -45,4 +59,16 @@ Color newColor(float r, float g, float b){
 Color colorSetOpacity(Color color, float opacity){
     color.a = opacity;
     return color;
+}
+
+Circle newCircle(Vec2 center, float radius, int segments){
+    Circle circle;
+    
+    circle.center.x = center.x;
+    circle.center.y = center.y;
+
+    circle.radius = radius;
+    circle.segments = segments;
+    
+    return circle;
 }
