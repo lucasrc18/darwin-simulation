@@ -1,6 +1,6 @@
-#include "window.h";
+#include "window.h"
 
-void* createWindow(int width, int height, const char* title) {
+void* createWindow(const char* title) {
     if (!glfwInit()) {
         fprintf(stderr, "Failed to initialize GLFW\n");
         return NULL;
@@ -12,7 +12,7 @@ void* createWindow(int width, int height, const char* title) {
         return NULL;
     }
 
-    window->frame = glfwCreateWindow(width, height, title, NULL, NULL);
+    window->frame = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, title, NULL, NULL);
     window->backgroundColor = newColor(0.0f, 0.0f, 0.0f);
 
     if (!window->frame) {
@@ -20,11 +20,6 @@ void* createWindow(int width, int height, const char* title) {
         glfwTerminate();
         return NULL;
     }
-
-    // Configure viewport and projection matrix
-    // by default top left is (0, 1) while bottom right is (1, 0)
-    // now top left is (0, 0) while bottom right is (width, height)
-    glOrtho(0, width, height, 0, -1, 1);
 
     return window;
 }
@@ -47,6 +42,15 @@ int setContext(Window* window) {
     a = window->backgroundColor.a;
     
     glClearColor(r, g, b, a);
+
+    // Configure viewport and projection matrix
+    // by default top left is (0, 1) while bottom right is (1, 0)
+    // now top left is (0, 0) while bottom right is (width, height)
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, WINDOW_WIDTH, WINDOW_HEIGHT, 0, -1, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
     
     return 0;
 }

@@ -3,6 +3,9 @@
 
 #include <stdlib.h>
 
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 600
+
 typedef struct {
     float r, g, b;
     float a;
