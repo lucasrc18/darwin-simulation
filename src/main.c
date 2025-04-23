@@ -3,8 +3,21 @@
 #include "window.h"
 #include "renderer.h"
 
+/**
+ * Function that handles rendering in the main loop
+ */
 void render();
 
+/**
+ * Entry point of the program
+ *  The program flow is based on
+ *  1. Initializing the window
+ *  2. Attempting to set up context for the window 
+ *  3. Entering the main loop
+ *  4. Terminating the window on user close
+ *  
+ *  @return 0 on success, -1 on failure
+ */
 int main(void){
     Window* window = createWindow("Darwin Theory Simulation [800x600] v1.0");
 
@@ -15,9 +28,8 @@ int main(void){
 
     mainLoop(window, render);
 
-    terminateWindow(window);
-
-    return 0;
+    // it should return 0 on successful closure
+    return terminateWindow(window);
 }
 
 void render(){
