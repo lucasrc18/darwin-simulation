@@ -2,20 +2,12 @@
 #define UTILS_H
 
 #include <stdlib.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 
 /** Window dimensions constants */
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
-
-/** 
- * Window properties and instances 
- * 
- * Represents a window with its frame and background color.
- * */
-typedef struct {
-    GLFWwindow* frame;
-    Color backgroundColor;
-} Window;
 
 /**
  * Color representation in RGBA format
@@ -27,6 +19,16 @@ typedef struct {
     float r, g, b;  /**< Red, green, blue components (0.0-1.0) */
     float a;        /**< Alpha/opacity component (0.0-1.0) */
 } Color;
+
+/** 
+ * Window properties and instances 
+ * 
+ * Represents a window with its frame and background color.
+ * */
+typedef struct {
+    GLFWwindow* frame;
+    Color backgroundColor;
+} Window;
 
 /**
  * 2D vector representation

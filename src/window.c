@@ -1,5 +1,7 @@
 #include "window.h"
 
+#include <stdio.h>
+
 void* createWindow(const char* title) {
     if (!glfwInit()) {
         fprintf(stderr, "Failed to initialize GLFW\n");
