@@ -2,6 +2,7 @@
 #include <cstdlib>
 
 #include "window.hpp"
+#include "polygons.cpp"
 
 /**
  * Function that handles states and other updates in the main loop
@@ -42,16 +43,9 @@ void update(){
 }
 
 void render(){
-    extern const Color RED;
-    extern const Color GREEN;
-    extern const Color BLUE;
+    Rect r = Rect(Vector2(100.0f, 100.0f), 20.f, 40.f);
+    Circle c = Circle(Vector2(400.0f, 300.0f), 50.0f);
     
-    Circle c = Circle(400.0f, 200.0f, 10.0f, 100);
-    c.render(RED);
-
-    Square s = Square(300.0f, 300.0f, 100.0f);
-    s.render(GREEN);
-
-    Rect r = Rect(100.0f, 100.0f, 100.0f, 100.0f);
-    r.render(BLUE);
+    c.render(Color(1.0f, 0.0f, 0.0f, 1.0f));
+    r.render(Color(0.0f, 1.0f, 0.0f, 1.0f));
 }  

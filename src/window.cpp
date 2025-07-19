@@ -1,5 +1,7 @@
 #include "window.hpp"
 
+#include <cstdlib>
+
 Window::Window(const char* title) {
     const int width = 800, height = 600;
 
