@@ -83,6 +83,8 @@ Circle::Circle(Vector2 position, float radius, int segments){
     this->radius = radius;
     this->angle = 2.0f * M_PI / (float) this->v;
 
+    this->vertices = new Vector2[this->v];
+
     for(int i = 0; i < this->v; i++){
         float theta = 2.0f * M_PI * (float) i / (float) this->v; 
         
@@ -93,7 +95,7 @@ Circle::Circle(Vector2 position, float radius, int segments){
     }
 }
 
-Circle::Circle(float x, float y, float radius, int segments){
+Circle::Circle(float x, float y, float radius, int segments) {
     this->center.x = x;
     this->center.y = y;
 
@@ -101,16 +103,16 @@ Circle::Circle(float x, float y, float radius, int segments){
     this->radius = radius;
 
     this->vertices = new Vector2[this->v];
-    this->angle = 2.0f * M_PI / (float) this->v;
+    this->angle = 2.0f * M_PI / (float)this->v;
 
-    for (int i = 0; i < this->v; i++){
-        float theta = 2.0f * M_PI * (float) i / (float) this->v; 
-        
-        x += radius * cos(theta);
-        y += radius * sin(theta);
-        
-        this->vertices[i] = Vector2(x, y);
-    } 
+    for (int i = 0; i < this->v; i++) {
+        float theta = 2.0f * M_PI * (float)i / (float)this->v;
+
+        float newX = x + radius * cos(theta);
+        float newY = y + radius * sin(theta);
+
+        this->vertices[i] = Vector2(newX, newY);
+    }
 }
 
 /* ======================== Shapes Renderers ======================== */

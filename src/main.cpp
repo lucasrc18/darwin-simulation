@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 #include "window.hpp"
-#include "polygons.cpp"
+#include "polygons.hpp"
 
 /**
  * Function that handles states and other updates in the main loop
@@ -32,7 +32,7 @@ int main(void){
         return -1;
     }
 
-    window.mainLoop(render);
+    window.mainLoop(update, render);
 
     // it should return 0 on sucessful termination
     return terminateAllWindow();
@@ -43,9 +43,9 @@ void update(){
 }
 
 void render(){
-    Rect r = Rect(Vector2(100.0f, 100.0f), 20.f, 40.f);
-    Circle c = Circle(Vector2(400.0f, 300.0f), 50.0f);
+    Rect r = Rect(100.0f, 100.0f, 100.0f, 100.0f);
+    r.render(Color(1.0f, 0.0f, 0.0f));
     
-    c.render(Color(1.0f, 0.0f, 0.0f, 1.0f));
-    r.render(Color(0.0f, 1.0f, 0.0f, 1.0f));
+    Circle c = Circle(200.0f, 200.0f, 50.0f);
+    c.render(Color(0.0f, 1.0f, 0.0f));
 }  

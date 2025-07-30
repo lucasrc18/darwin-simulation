@@ -59,9 +59,10 @@ public:
      * Main loop for the window
      * 
      * @param window The window to run the loop on
-     * @param toRender The function to call to render the scene
+     * @param update The function to call updates on the scene
+     * @param render The function to call renders on the scene
      */ 
-    void mainLoop(void (*render)());
+    void mainLoop(void (*update)(), void (*render)());
 };
 
 /* ======================== Window Functions ======================== */
@@ -81,6 +82,6 @@ int terminateAllWindow();
  * @param window The window to set up context for
  * @return 0 on success, -1 on failure
  */
-int setContext(Window window);
+int setContext(Window& window);
 
 #endif

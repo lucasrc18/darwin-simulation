@@ -5,10 +5,14 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_PREFIX_PATH "/usr/lib/x86_64-linux-gnu/cmake/glfw3/" ${CMAKE_PREFIX_PATH})
 
+# Debug only
+# set(CMAKE_BUILD_TYPE Debug)
+
 set(SOURCES 
     src/main.cpp
     src/window.cpp
     src/utils.cpp
+    src/polygons.cpp
 )
 
 add_executable(DarwinSimulation ${SOURCES})
